@@ -3,13 +3,13 @@
   "version": 1,
   "type": "APP",
   "name": {
-    "en": "kintone-plugin-template",
-    "ja": "プラグインテンプレート",
+    "en": "markdown editor",
+    "ja": "マークダウンエディタ",
     "zh": "插件模板"
   },
   "description": {
     "en": "kintone-plugin-template",
-    "ja": "プラグインテンプレート",
+    "ja": "リッチエディタを独自のエディタに置き換え、マークダウン記法を利用できるようにします。",
     "zh": "插件模板"
   },
   "icon": "image/icon.png",

@@ -1,0 +1,7 @@
+:root {
+  --color-canvas-subtle: #fff !important;
+}
+
+#kintone-plugin-markdown-editor .md-editor {
+  background-color: #fff;
+}

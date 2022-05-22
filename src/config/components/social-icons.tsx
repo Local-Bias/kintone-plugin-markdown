@@ -30,9 +30,11 @@ const Component: FCX = ({ className }) => (
     <Icon title='GitHub' url={URL_GITHUB}>
       <GitHubIcon />
     </Icon>
-    <GradientButton onClick={() => openNewTab('https://kula.konomi.app')}>
-      kintoneだけでブログが書けます
-    </GradientButton>
+    <div>
+      <GradientButton onClick={() => openNewTab('https://kula.konomi.app')}>
+        kintoneだけでブログが書けます
+      </GradientButton>
+    </div>
   </aside>
 );
 
@@ -40,9 +42,11 @@ const StyledComponent = styled(Component)`
   position: absolute;
   right: 10px;
   bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   & > button {
     color: #78909c;
-    margin: 4px;
     box-shadow: none;
   }
 `;

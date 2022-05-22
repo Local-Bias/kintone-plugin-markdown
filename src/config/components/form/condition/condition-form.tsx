@@ -2,21 +2,22 @@ import React, { ChangeEventHandler, FC, FCX } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import styled from '@emotion/styled';
 import produce from 'immer';
-import { Properties } from '@kintone/rest-api-client/lib/client/types';
 
-import { appFieldsState, storageState } from '../../../states';
+import { storageState } from '../../../states';
 import { MenuItem, TextField } from '@mui/material';
+import { richTextFieldsState } from '../../../states/kintone';
+import { kx } from '../../../../types/kintone-field';
 
 type ContainerProps = { condition: kintone.plugin.Condition; index: number };
 type Props = ContainerProps & {
-  appFields: Properties;
+  appFields: kx.Field[];
   onChange: ChangeEventHandler<HTMLInputElement>;
 };
 
 const Component: FCX<Props> = ({ className, condition, appFields, onChange }) => (
   <div {...{ className }}>
     <div>
-      <h3>対象フィールド</h3>
+      <h3>対象フィールド (リッチエディタ)</h3>
       <TextField
         select
         value={condition.field}
@@ -24,7 +25,7 @@ const Component: FCX<Props> = ({ className, condition, appFields, onChange }) =>
         {...{ onChange }}
         className='input'
       >
-        {Object.values(appFields).map(({ code, label }, i) => (
+        {appFields.map(({ code, label }, i) => (
           <MenuItem key={i} value={code}>
             {label}
           </MenuItem>
@@ -51,7 +52,7 @@ const StyledComponent = styled(Component)`
 `;
 
 const Container: FC<ContainerProps> = ({ condition, index }) => {
-  const appFields = useRecoilValue(appFieldsState);
+  const appFields = useRecoilValue(richTextFieldsState);
   const setStorage = useSetRecoilState(storageState);
 
   const setConditionProps = <T extends keyof kintone.plugin.Condition>(
