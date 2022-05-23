@@ -23,10 +23,6 @@ const StyledComponent = styled(Component)`
   height: 24rem;
   display: flex;
 
-  * {
-    background-color: #fff !important;
-  }
-
   > div {
     flex-grow: 1;
   }

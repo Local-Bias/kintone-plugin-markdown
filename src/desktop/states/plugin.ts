@@ -8,7 +8,7 @@ export const pluginConditionState = atom<kintone.plugin.Condition | null>({
 });
 
 export const markdownState = atom<string>({
-  key: 'richTextState',
+  key: 'markdownState',
   default: '',
   effects: [
     ({ onSet, getPromise }) => {
